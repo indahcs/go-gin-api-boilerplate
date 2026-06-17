@@ -63,7 +63,7 @@ This boilerplate provides a solid foundation for building backend services such 
 ```text
 .
 ├── cmd/
-│   └── server/
+│   └── api/
 │       └── main.go
 │
 ├── internal/
@@ -74,22 +74,18 @@ This boilerplate provides a solid foundation for building backend services such 
 │   │   └── postgres.go
 │   │
 │   ├── handlers/
-│   │   ├── auth_handler.go
-│   │   └── user_handler.go
+│   │   ├── health_handler.go
 │   │
 │   ├── middleware/
 │   │   ├── auth.go
+│   │   └── cors.go
 │   │   └── logger.go
 │   │
 │   ├── models/
-│   │   ├── user.go
-│   │   └── role.go
 │   │
 │   ├── repositories/
-│   │   └── user_repository.go
 │   │
 │   ├── services/
-│   │   └── user_service.go
 │   │
 │   └── routes/
 │       └── routes.go
@@ -99,7 +95,6 @@ This boilerplate provides a solid foundation for building backend services such 
 │   │   └── response.go
 │   │
 │   └── utils/
-│       └── helpers.go
 │
 ├── migrations/
 │
@@ -222,30 +217,6 @@ http://localhost:8080
 
 ## Development Commands
 
-### Run Application
-
-```bash
-make run
-```
-
-### Build Application
-
-```bash
-make build
-```
-
-### Run Tests
-
-```bash
-make test
-```
-
-### Run Linter
-
-```bash
-make lint
-```
-
 ### Start Docker Services
 
 ```bash
@@ -289,23 +260,6 @@ Response:
 }
 ```
 
-### Authentication
-
-```http
-POST /api/v1/auth/register
-POST /api/v1/auth/login
-```
-
-### Users
-
-```http
-GET    /api/v1/users
-GET    /api/v1/users/:id
-POST   /api/v1/users
-PUT    /api/v1/users/:id
-DELETE /api/v1/users/:id
-```
-
 ---
 
 ## Creating a New Project from This Boilerplate
@@ -319,7 +273,7 @@ DELETE /api/v1/users/:id
 ### Option 2: Clone and Rename
 
 ```bash
-git clone https://github.com/indahputri/go-gin-api-boilerplate.git my-project
+git clone https://github.com/indahcs/go-gin-api-boilerplate.git my-project
 
 cd my-project
 ```
